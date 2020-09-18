@@ -1,7 +1,88 @@
 fileFormatVersion: 2
 guid: cd533944d8a07b24987c6e63f4b6d5a9
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -8027029458009689751
+    second: Pink Gummy Back Gif (1)_0
+  - first:
+      213: -5833708730698587174
+    second: Pink Gummy Back Gif (1)_1
+  - first:
+      213: -1688548551106313936
+    second: Pink Gummy Back Gif (1)_2
+  - first:
+      213: -4750372225050327938
+    second: Pink Gummy Back Gif (1)_3
+  - first:
+      213: -3838933226882163075
+    second: Pink Gummy Back Gif (1)_4
+  - first:
+      213: 6060964062352670521
+    second: Pink Gummy Back Gif (1)_5
+  - first:
+      213: 629558287249117681
+    second: Pink Gummy Back Gif (1)_6
+  - first:
+      213: -8815784926960214575
+    second: Pink Gummy Back Gif (1)_7
+  - first:
+      213: 1541460377982733943
+    second: Pink Gummy Back Gif (1)_8
+  - first:
+      213: 5029515371840135194
+    second: Pink Gummy Back Gif (1)_9
+  - first:
+      213: -6011600606594396319
+    second: Pink Gummy Back Gif (1)_10
+  - first:
+      213: 1272086868147415615
+    second: Pink Gummy Back Gif (1)_11
+  - first:
+      213: -430496692403207471
+    second: Pink Gummy Back Gif (1)_12
+  - first:
+      213: 5262320174437271811
+    second: Pink Gummy Back Gif (1)_13
+  - first:
+      213: 5848770470570062029
+    second: Pink Gummy Back Gif (1)_14
+  - first:
+      213: 5874483696281375532
+    second: Pink Gummy Back Gif (1)_15
+  - first:
+      213: -8459414948870466826
+    second: Pink Gummy Back Gif (1)_16
+  - first:
+      213: 7759873148628904194
+    second: Pink Gummy Back Gif (1)_17
+  - first:
+      213: -5681295695719471331
+    second: Pink Gummy Back Gif (1)_18
+  - first:
+      213: -719078642513446592
+    second: Pink Gummy Back Gif (1)_19
+  - first:
+      213: 8727457581506237745
+    second: Pink Gummy Back Gif (1)_20
+  - first:
+      213: 2716470241879812978
+    second: Pink Gummy Back Gif (1)_21
+  - first:
+      213: -768793965007749473
+    second: Pink Gummy Back Gif (1)_22
+  - first:
+      213: 4090299592573921283
+    second: Pink Gummy Back Gif (1)_23
+  - first:
+      213: 5390842626454535162
+    second: Pink Gummy Back Gif (1)_24
+  - first:
+      213: 4765340583428471128
+    second: Pink Gummy Back Gif (1)_25
+  - first:
+      213: 7639553605079329155
+    second: Pink Gummy Back Gif (1)_26
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,7 +121,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -70,9 +151,84 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Pink Gummy Back Gif (1)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9617cb9ac334a9090800000000000000
+      internalID: -8027029458009689751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pink Gummy Back Gif (1)_1
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad3ad9751d08a0fa0800000000000000
+      internalID: -5833708730698587174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pink Gummy Back Gif (1)_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 031ce410a021198e0800000000000000
+      internalID: -1688548551106313936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
