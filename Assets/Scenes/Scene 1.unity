@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -147,6 +148,29 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74d519ce8053db54aad3446e0e60295d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  empty: {fileID: 8905444467606615893, guid: 8ad7f59548077674dada5351d300376e, type: 3}
+  outCorner: {fileID: 3242188900542838794, guid: 8425c93df78f4b245b9d77ee59681401,
+    type: 3}
+  outWall: {fileID: 7805601417375850136, guid: dec6303939ea24d479e83f1d78813075, type: 3}
+  inCorner: {fileID: 7260318509354497988, guid: 204b381f6a521f2429d35ded02509fa8,
+    type: 3}
+  inWall: {fileID: 2818027433739795987, guid: d816f6cabf3072c468929967c3af75c5, type: 3}
+  pellet: {fileID: 2197649685391727940, guid: fabcd5324fc8c0442a473f377504ae2c, type: 3}
+  powerPellet: {fileID: 583348945601623901, guid: 5f09b0ade92abd5448c0e2ce8566d888,
+    type: 3}
+  tPiece: {fileID: 2828821542727280545, guid: bdf1ab58126b0ce479f116e198abb1fd, type: 3}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
