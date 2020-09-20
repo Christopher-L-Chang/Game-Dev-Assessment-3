@@ -13,6 +13,10 @@ public class PacmanMovement : MonoBehaviour
     [SerializeField]
     private float duration = 2f;
     public Animator teethController;
+    [SerializeField]
+    private AudioSource pacmanMove;
+    [SerializeField]
+    private AudioSource backgroundMusic;
 
     // Start is called before the first frame update
     void Start()
@@ -22,12 +26,14 @@ public class PacmanMovement : MonoBehaviour
         startTime = Time.time;
         teethController.SetTrigger("Side");
         pacman.transform.Rotate(0,180,0);
+        backgroundMusic.PlayDelayed(4);
+        pacmanMove.PlayDelayed(4);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector2.Distance(pacman.transform.position, endPos) > 0.05f)
+        if (Vector2.Distance(pacman.transform.position, endPos) > 0f)
         {
             float speed = (Time.time - startTime) / duration;
             pacman.transform.position = Vector2.Lerp(startPos, endPos, speed);
