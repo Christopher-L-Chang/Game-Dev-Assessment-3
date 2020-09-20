@@ -168,7 +168,7 @@ MonoBehaviour:
     type: 3}
   inWall: {fileID: 4805195611337684455, guid: 159a4dac12bb4594ea07fdd97dc5fcb3, type: 3}
   pellet: {fileID: 2197649685391727940, guid: fabcd5324fc8c0442a473f377504ae2c, type: 3}
-  powerPellet: {fileID: 583348945601623901, guid: 5f09b0ade92abd5448c0e2ce8566d888,
+  powerPellet: {fileID: 6477775329061742702, guid: 4718ca4409f6a4148a25a20d4caa177d,
     type: 3}
   tPiece: {fileID: 4028363217004916174, guid: 6763f8c58ef561142a06f1f703cd10bc, type: 3}
 --- !u!20 &519420031
