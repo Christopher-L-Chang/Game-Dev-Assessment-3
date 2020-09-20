@@ -35,49 +35,364 @@ public class LevelGenerator : MonoBehaviour
 
     void Awake()
     {
+        float left = 90;
+        float right = -90;
+        float flip = 180;
+
+
         for (int i = 0; i < levelMap.GetLength(0); i++)
         {
             for (int j = 0; j < levelMap.GetLength(1); j++)
             {
                 if (levelMap[i, j] == 0)
                 {
-                    Debug.Log(i + " " + j + " at 0");
+                    Debug.Log(j + " " + i + " at 0");
                     Instantiate(empty, new Vector2 (j, i), Quaternion.identity);
                 }
                 else if (levelMap[i, j] == 1)
                 {
-                    Debug.Log(i + " " + j + " at 1");
-                    Instantiate(empty, new Vector2(j, i), Quaternion.identity);
+                    Debug.Log(j + " " + i + " at 1");
+                    if (i - 1 >= 0)
+                    {
+                        if (levelMap[i - 1, j] == 2)
+                        {
+                            if (j - 1 >= 0)
+                            {
+                                if (levelMap[i, j - 1] == 2)
+                                {
+                                    Instantiate(outCorner, new Vector2(j, i), Quaternion.Euler(0, 0, right));
+                                }
+                                else
+                                {
+                                    Instantiate(outCorner, new Vector2(j, i), Quaternion.Euler(0, 0, flip));
+                                }
+                            }
+                            else
+                            {
+                                Instantiate(outCorner, new Vector2(j, i), Quaternion.identity);
+                            }
+                        } 
+                        else
+                        {
+                            if (j - 1 >= 0)
+                            {
+                                if (levelMap[i, j - 1] == 2)
+                                {
+                                    Instantiate(outCorner, new Vector2(j, i), Quaternion.Euler(0, 0, flip));
+                                }
+                                else
+                                {
+                                    Instantiate(outCorner, new Vector2(j, i), Quaternion.Euler(0, 0, left));
+                                }
+                            }
+                            else
+                            {
+                                Instantiate(outCorner, new Vector2(j, i), Quaternion.identity);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (j-1 < 0)
+                        {
+                            Instantiate(outCorner, new Vector2(j, i), Quaternion.Euler(0, 0, left));
+                        }
+                        else
+                        {
+                            Instantiate(outCorner, new Vector2(j, i), Quaternion.identity);
+                        }
+                    }
                 }
                 else if (levelMap[i, j] == 2)
                 {
-                    Debug.Log(i + " " + j + " at 2");
-                    Instantiate(empty, new Vector2(j, i), Quaternion.identity);
+                    Debug.Log(j + " " + i + " at 2");
+
+                    if (i - 1 >= 0)
+                    {
+                        if (levelMap[i - 1, j] == 1 || levelMap[i - 1, j] == 2)
+                        {
+                            Instantiate(outWall, new Vector2(j, i), Quaternion.Euler(0, 0, left));
+                        }
+                        else
+                        {
+                            Instantiate(outWall, new Vector2(j, i), Quaternion.identity);
+                        }
+                    }
+                    else
+                    {
+                        Instantiate(outWall, new Vector2(j, i), Quaternion.Euler(0, 0, flip));
+                    }
+                    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                    /*
+                    if (i - 1 < 0)
+                    {
+                        if (j - 1 < 0)
+                        {
+                            Instantiate(outWall, new Vector2(j, i), Quaternion.Euler(1, 1, right));
+                        }
+                        else
+                        {
+                            Instantiate(outWall, new Vector2(j, i), Quaternion.Euler(0, 0, flip));
+                        }
+                    }
+                    else if (i - 1 >= 0)
+                    {
+                        if (levelMap[i - 1, j] == 1 || levelMap[i - 1, j] == 2)
+                        {
+                            if (j - 1 >= 0)
+                            {
+                                if (levelMap[i, j - 1] == 1 || levelMap[i, j - 1] == 2)
+                                {
+                                    Instantiate(outWall, new Vector2(j, i), Quaternion.Euler(0, 0, right));
+                                }
+                                else
+                                {
+                                    Instantiate(outWall, new Vector2(j, i), Quaternion.Euler(0, 0, right));
+                                }
+                            }
+                            else
+                            {
+                                Instantiate(outWall, new Vector2(j, i), Quaternion.Euler(0, 0, left));
+                            }
+                        }
+                        else
+                        {
+                            Instantiate(outWall, new Vector2(j, i), Quaternion.Euler(0, 0, flip));
+                        }
+                    }
+                    else
+                    {
+                        Instantiate(outWall, new Vector2(j, i), Quaternion.identity);
+                    }
+                    */
                 }
                 else if (levelMap[i, j] == 3)
                 {
-                    Debug.Log(i + " " + j + " at 3");
-                    Instantiate(empty, new Vector2(j, i), Quaternion.identity);
+                    Debug.Log(j + " " + i + " at 3");
+
+                    if (i - 1 >= 0)
+                    {
+                        if (levelMap[i - 1, j] == 4 || levelMap[i - 1, j] == 3)
+                        {
+                            if (j - 1 >= 0)
+                            {
+                                if (levelMap[i, j - 1] == 4 || levelMap[i, j - 1] == 3)
+                                {
+                                    if (j + 1 < levelMap.GetLength(1))
+                                    {
+                                        if (levelMap[i, j + 1] == 4 || levelMap[i, j + 1] == 3)
+                                        {
+                                            if (levelMap[i + 1, j] == 3)
+                                            {
+                                                Instantiate(inCorner, new Vector2(j, i), Quaternion.identity);
+                                            }
+                                            else
+                                            {
+                                                Instantiate(inCorner, new Vector2(j, i), Quaternion.Euler(0, 0, left));
+                                                
+                                            }
+                                        }
+                                        else
+                                        {
+                                            Instantiate(inCorner, new Vector2(j, i), Quaternion.Euler(0, 0, right));
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (levelMap[i + 1, j] == 5)
+                                        {
+                                            Instantiate(inCorner, new Vector2(j, i), Quaternion.Euler(0, 0, right));
+                                        }
+                                        else
+                                        {
+                                            Instantiate(inCorner, new Vector2(j, i), Quaternion.Euler(0, 0, flip));
+                                        }
+                                        
+                                    }
+                                    
+                                }
+                                else
+                                {
+                                    Instantiate(inCorner, new Vector2(j, i), Quaternion.identity);
+                                }
+                            }
+                            else
+                            {
+                                Instantiate(inCorner, new Vector2(j, i), Quaternion.identity);
+                            }
+                        }
+                        else
+                        {
+                            if (j - 1 >= 0)
+                            {
+                                if (levelMap[i, j - 1] == 4 || levelMap[i, j - 1] == 3)
+                                {
+                                    Instantiate(inCorner, new Vector2(j, i), Quaternion.Euler(0, 0, flip));
+                                }
+                                else
+                                {
+                                    Instantiate(inCorner, new Vector2(j, i), Quaternion.Euler(0, 0, left));
+                                }
+                            }
+                            else
+                            {
+                                Instantiate(inCorner, new Vector2(j, i), Quaternion.identity);
+                            }
+                        }
+                    }
                 }
                 else if (levelMap[i, j] == 4)
                 {
-                    Debug.Log(i + " " + j + " at 4");
-                    Instantiate(empty, new Vector2(j, i), Quaternion.identity);
+                    Debug.Log(j + " " + i + " at 4");
+                    if (i - 1 >= 0)
+                    {
+                        if (levelMap[i - 1, j] == 3 || levelMap[i - 1, j] == 4 || levelMap[i - 1, j] == 7)
+                        {
+                            if (i + 1 < levelMap.GetLength(0))
+                            {
+                                if (levelMap[i+1, j] == 3 || levelMap[i+1, j] == 4)
+                                {
+                                    if (j - 1 >= 0)
+                                    {
+                                        if (levelMap[i, j - 1] == 5 || levelMap[i, j -1] == 6)
+                                        {
+                                            Instantiate(inWall, new Vector2(j, i), Quaternion.Euler(0, 0, left));
+                                        }
+                                        else if (j + 1 < levelMap.GetLength(1))
+                                        {
+                                            if (levelMap[i, j + 1] == 0 && levelMap[i, j - 1] == 0)
+                                            {
+                                                Instantiate(inWall, new Vector2(j, i), Quaternion.Euler(0, 0, left));
+                                            }
+                                            else if (levelMap[i, j + 1] == 5 || levelMap[i, j + 1] == 6 || levelMap[i, j + 1] == 0)
+                                            {
+                                                Instantiate(inWall, new Vector2(j, i), Quaternion.Euler(0, 0, right));
+                                            }
+                                        }
+                                        else if (levelMap[i, j - 1] == 0)
+                                        {
+                                            Instantiate(inWall, new Vector2(j, i), Quaternion.Euler(0, 0, left));
+                                        }
+                                        else
+                                        {
+                                            Instantiate(inWall, new Vector2(j, i), Quaternion.Euler(0, 0, right));
+                                        }
+                                    }
+                                }
+                                else if (levelMap[i - 1, j] == 3 || levelMap[i - 1, j] == 4)
+                                {
+                                    Instantiate(inWall, new Vector2(j, i), Quaternion.identity);
+                                }
+                                else if (j + 1 < levelMap.GetLength(1))
+                                {
+                                    if (levelMap[i, j + 1] == 5 || levelMap[i, j + 1] == 6 || levelMap[i, j + 1] == 0)
+                                    {
+                                        Instantiate(inWall, new Vector2(j, i), Quaternion.Euler(0, 0, right));
+                                    } 
+                                    else
+                                    {
+                                        Instantiate(inWall, new Vector2(j, i), Quaternion.identity);
+                                    }
+                                }
+                                else
+                                {
+                                    Instantiate(inWall, new Vector2(j, i), Quaternion.Euler(0, 0, left));
+                                }
+                            }
+                            else
+                            {
+                                Instantiate(inWall, new Vector2(j, i), Quaternion.Euler(0, 0, left));
+                            }
+                        }
+                        else
+                        {
+                            if (levelMap[i - 1, j] == 5 || levelMap[i - 1, j] == 6)
+                            {
+                                Instantiate(inWall, new Vector2(j, i), Quaternion.Euler(0, 0, flip));
+                            }
+                            else
+                            {
+                                //stff
+                                if (i + 1 < levelMap.GetLength(0))
+                                {
+                                    if (levelMap[i - 1, j] == 0 && levelMap[i + 1, j] == 0)
+                                    {
+                                        Instantiate(inWall, new Vector2(j, i), Quaternion.Euler(0, 0, flip));
+                                    }
+                                    else
+                                    {
+                                        Instantiate(inWall, new Vector2(j, i), Quaternion.identity);
+                                    }
+                                }
+                                else
+                                {
+                                    Instantiate(inWall, new Vector2(j, i), Quaternion.identity);
+                                }
+                                
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Instantiate(inWall, new Vector2(j, i), Quaternion.Euler(0, 0, flip));
+                    }
+                    /*
+                    if (i - 1 < 0)
+                    {
+                        if (j - 1 < 0)
+                        {
+                            Instantiate(inWall, new Vector2(j, i), Quaternion.Euler(1, 1, right));
+                        }
+                        else
+                        {
+                            Instantiate(inWall, new Vector2(j, i), Quaternion.Euler(0, 0, flip));
+                        }
+                    }
+                    else if (i - 1 >= 0)
+                    {
+                        if (levelMap[i - 1, j] == 3 || levelMap[i - 1, j] == 4)
+                        {
+                            if (j - 1 >= 0)
+                            {
+                                if (levelMap[i, j - 1] == 3 || levelMap[i, j - 1] == 4)
+                                {
+                                    Instantiate(inWall, new Vector2(j, i), Quaternion.Euler(0, 0, right));
+                                }
+                                else
+                                {
+                                    Instantiate(inWall, new Vector2(j, i), Quaternion.Euler(0, 0, left));
+                                }
+                            }
+                            else
+                            {
+                                Instantiate(inWall, new Vector2(j, i), Quaternion.Euler(0, 0, left));
+                            }
+                        }
+                        else
+                        {
+                            Instantiate(inWall, new Vector2(j, i), Quaternion.Euler(0, 0, flip));
+                        }
+                    }
+                    else
+                    {
+                        Instantiate(inWall, new Vector2(j, i), Quaternion.identity);
+                    }
+                    */
                 }
                 else if (levelMap[i, j] == 5)
                 {
-                    Debug.Log(i + " " + j + " at 5");
-                    Instantiate(empty, new Vector2(j, i), Quaternion.identity);
+                    Debug.Log(j + " " + i + " at 5");
+                    Instantiate(pellet, new Vector2(j, i), Quaternion.identity);
                 }
                 else if (levelMap[i, j] == 6)
                 {
-                    Debug.Log(i + " " + j + " at 6");
-                    Instantiate(empty, new Vector2(j, i), Quaternion.identity);
+                    Debug.Log(j + " " + i + " at 6");
+                    Instantiate(powerPellet, new Vector2(j, i), Quaternion.identity);
                 }
                 else if (levelMap[i, j] == 7)
                 {
-                    Debug.Log(i + " " + j + " at 7");
-                    Instantiate(empty, new Vector2(j, i), Quaternion.identity);
+                    Debug.Log(j + " " + i + " at 7");
+                    Instantiate(tPiece, new Vector2(j, i), Quaternion.identity);
                 }
             }
         }
